@@ -1,0 +1,1 @@
+export function makeEnemy(scene,x,y,emoji){const e=scene.add.text(x,y,emoji,{fontSize:'31px'}).setOrigin(.5).setDepth(4);scene.physics.add.existing(e);e.body.setAllowGravity(false);e.body.setCircle(13);scene.tweens.add({targets:e,x:x+Phaser.Math.Between(35,85),duration:1200+Phaser.Math.Between(0,700),yoyo:true,repeat:-1,ease:'Sine.inOut'});return e;}
