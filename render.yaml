@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: happiness-heist
+    runtime: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist

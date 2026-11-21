@@ -1,0 +1,5 @@
+import {clamp} from '../gameConfig.js';
+export function overallScore(s){return clamp(.35*s.sukh+.20*s.suvidha+.15*s.health+.15*s.academic+.10*s.relationships-.05*s.stress);}
+export function balanceScore(s){const spread=Math.abs(s.sukh-s.suvidha);return clamp(100-spread*.65-Math.max(0,35-s.health)*.35-Math.max(0,s.stress-55)*.3);}
+export function stabilityScore(history){if(history.length<2)return 100;const changes=history.slice(1).map((v,i)=>Math.abs(v-history[i]));const avg=changes.reduce((a,b)=>a+b,0)/changes.length;return clamp(100-avg*2.2);}
+export function mirrorMessage(s){if(s.stress>70)return 'Your stress is high. Rest and social connection may improve your balance.';if(s.suvidha-s.sukh>30)return 'You gathered many comfort items. Consider whether rest and relationships also received attention.';if(s.sukh>65&&Math.abs(s.sukh-s.suvidha)<22)return 'Your physical facilities are moderate, and your Sukh score is strong.';if(balanceScore(s)>75)return 'You maintained a balanced lifestyle across several areas.';return 'Your choices created a mix of comfort, effort and wellbeing. Small adjustments can change the balance.';}
