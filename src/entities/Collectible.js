@@ -1,1 +1,0 @@
-export function makeToken(scene,x,y,emoji,type){const c=scene.add.text(x,y,emoji,{fontSize:'27px'}).setOrigin(.5).setDepth(3);scene.physics.add.existing(c);c.body.setAllowGravity(false);c.body.setCircle(13);c.kind=type;scene.tweens.add({targets:c,y:y-7,duration:650,yoyo:true,repeat:-1,ease:'Sine.inOut'});return c;}

@@ -1,1 +1,0 @@
-export default class BootScene extends Phaser.Scene{constructor(){super('Boot');}create(){const g=this.add.graphics();g.fillStyle(0xffd166).fillCircle(20,20,18);g.fillStyle(0xffffff).fillCircle(14,15,3).fillCircle(26,15,3);g.lineStyle(2,0x7b4b35).beginPath().arc(20,20,9,.2,2.9).strokePath();g.generateTexture('player',40,40);g.destroy();this.scene.start('Game');}}
